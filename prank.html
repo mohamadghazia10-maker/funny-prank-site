@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Important Question 🤔</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f4f6ff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        position: relative;
+        width: 400px;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 10px;
+        position: relative;
+    }
+
+    #yesBtn {
+        background: #4CAF50;
+        color: white;
+    }
+
+    #noBtn {
+        background: #ff4d4d;
+        color: white;
+        position: absolute;
+    }
+
+    #message {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>تلحس طيزي؟ 😎</h1>
+
+    <button id="yesBtn">Yes ✅</button>
+    <button id="noBtn">No ❌</button>
+
+    <div id="message"></div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const container = document.querySelector(".container");
+const message = document.getElementById("message");
+
+function moveButton() {
+    const maxX = container.clientWidth - noBtn.offsetWidth;
+    const maxY = container.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+}
+
+// For desktop (hover)
+noBtn.addEventListener("mouseover", moveButton);
+
+// For mobile (tap)
+noBtn.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    moveButton();
+});
+
+document.getElementById("yesBtn").addEventListener("click", () => {
+    message.innerText = "😂 غصب عنك";
+});
+</script>
+
+
+</body>
+</html>
